@@ -5,11 +5,14 @@ import {
 } from './api.js'
 
 
+
 const button = document.querySelector('.button');
+const changeToDisplayVisible = document.querySelector('.film');
+const changeToDisplayHidden = document.querySelector('.container')
 
-button.addEventListener('click', print)
-// console.log(button)
+button.addEventListener('click', seeFilmDescripton)
 
-function print() {
-    console.log('print');
+function seeFilmDescripton() {
+    changeToDisplayVisible.style.display = "";
+    changeToDisplayHidden.style.display = "none";
 }
