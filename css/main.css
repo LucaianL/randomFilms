@@ -59,6 +59,7 @@ body {
 .film-img{
     float: left;
     margin-right: 25px;
+    max-width: 180px;
 }
 .film h2{
     font-size: 25px;
