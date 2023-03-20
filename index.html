@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
-
     <title>randomFilms</title>
 </head>
 
@@ -35,8 +34,8 @@
 
     <div class="film" style="display: none">
         <img class="film-img" src="assets/Poster.png" alt="Poster do filme">
-        <h2>Os caça fantasma</h2>
-        <p>Em Nova York Peter Venkman, Ray Stantz e Egon Spengler são três cientistas do departamento de psicologia da
+        <h2 id="filmTitle">Os caça fantasma</h2>
+        <p id="overview">Em Nova York Peter Venkman, Ray Stantz e Egon Spengler são três cientistas do departamento de psicologia da
             Columbia University, que se dedicam ao estudo de casos paranormais. Quando a subvenção termina eles são
             despedidos e Venkman sugere que abram um negócio próprio, a exterminadora de fantasmas Ghostbusters.
             Inicialmente eles só têm despesas e nenhum cliente, mas eis que surge Dana Barrett, uma violoncelista que
@@ -47,6 +46,7 @@
         </button>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="module" src="js/script.js"></script>
 
 </html>
