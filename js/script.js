@@ -10,17 +10,36 @@ const img = IMG_URL;
 function getContent(url) {
     axios.get(url)
         .then(response => {
-            const title = response.data.title
-            const overview = response.data.overview
-            const poster = response.data.poster_path
+            const data = response.data
+            const adult = response.data.adult
+            const originalLanguage = response.data.original_language
+            const haveImg = response.data.poster_path
 
-            filmTitle.textContent = title
-            filmOverview.textContent = overview
-            filmImg.setAttribute('src', img + poster)
+            console.log(data)
+
+            adult
+                ? nextFilm()
+                : originalLanguage != "pt" && originalLanguage != "en"
+                    ? nextFilm()
+                    : !haveImg
+                        ? nextFilm()
+                        : getFilmInfo(data)
+
         })
         .catch(error =>
             nextFilm()
         )
+}
+
+function getFilmInfo(info) {
+    const title = info.title
+    const overview = info.overview
+    const poster = info.poster_path
+    const hasOverview = overview === "" ? "Não temos sinopse disponível para esse filme =(" : overview
+
+    filmTitle.textContent = title
+    filmOverview.textContent = hasOverview
+    filmImg.setAttribute('src', img + poster)
 }
 
 const button = document.querySelector('.button');
