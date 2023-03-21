@@ -13,7 +13,9 @@ body {
     background-color: #215B7C;
     box-shadow: 1px 1px 10px #050304;
     text-align: center;
+    width: 100%;
 }
+
 .logo {
     padding: 20px;
 }
@@ -50,29 +52,31 @@ body {
 
 
 /* POSTER DO FILME */
-.film{
-    width: 600px;
+.film {
+    width: 900px;
     margin: 0 auto;
     margin-top: 50px;
     text-align: center;
 }
 
-.film-img{
+.film-img {
     float: left;
     margin-right: 25px;
     max-width: 180px;
 }
-.film h2{
+
+.film h2 {
     font-size: 25px;
     font-weight: 700;
     padding-top: 10px;
     margin-bottom: 40px;
 }
 
-.film p{
+.film p {
     font-size: 16px;
     font-weight: 300;
     line-height: 25px;
+    text-align: justify;
 }
 
 .film-button {
@@ -81,10 +85,31 @@ body {
     border-radius: 40px;
     border-style: none;
     background-color: #F3F1EF;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.film-container{
+.film-container {
     width: 100%;
     display: inline-block;
-    text-align: left;
+}
+
+@media (max-width: 800px) {
+    .film {
+        width: 300px;
+    }
+
+    .film-img {
+        float: none;
+        margin-right: 0;
+    }
+
+    .film-button {
+        position: static;
+        transform: none;
+        left: none;  
+        bottom: none;
+    }
 }
