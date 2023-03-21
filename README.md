@@ -1,2 +1,2 @@
 # randomFilms
-Um site para gerar descrição de filmes aleatórios
+Um site para gerar filmes aleatórios
