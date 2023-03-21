@@ -92,6 +92,11 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.film-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
 .film-container {
     width: 100%;
     display: inline-block;
