@@ -4,59 +4,49 @@ import {
     language,
 } from './api.js'
 
-const url = `${BASE_URL}550?api_key=${API_KEY}&${language}`;
+const url = `${BASE_URL}${parseInt(nextNumber(1, 80000))}?api_key=${API_KEY}&${language}`;
 const img = IMG_URL;
 
-function movieCard() {
+function getContent(url) {
     axios.get(url)
         .then(response => {
-            const data = response.data.poster_path
-            filmImg.setAttribute('src', img + data)
-        })
-        .catch(error => console.log(error))
-}
+            const title = response.data.title
+            const overview = response.data.overview
+            const poster = response.data.poster_path
 
-movieCard();
-
-function getTitle() {
-    axios.get(url)
-        .then(response => {
-            const data = response.data.title
-            filmTitle.textContent = data
+            filmTitle.textContent = title
+            filmOverview.textContent = overview
+            filmImg.setAttribute('src', img + poster)
         })
-        .catch(error => console.log(error))
+        .catch(error =>
+            nextFilm()
+        )
 }
-getTitle();
-
-// overview
-function getOverview() {
-    axios.get(url)
-        .then(response => {
-            const data = response.data.overview
-            overview.textContent = data
-        })
-        .catch(error => console.log(error))
-}
-getOverview();
 
 const button = document.querySelector('.button');
 const changeToDisplayVisible = document.querySelector('.film');
-const changeToDisplayHidden = document.querySelector('.container')
+const changeToDisplayHidden = document.querySelector('.container');
 
-button.addEventListener('click', seeFilm)
+
+button.addEventListener('click', seeFilm);
 
 function seeFilm() {
     changeToDisplayVisible.style.display = "";
     changeToDisplayHidden.style.display = "none";
+    getContent(url);
 }
 
 
-function jsonFilm() {
-    axios.get(url)
-        .then(response => {
-            const data = response.data
-            console.log(data)
-        })
-        .catch(error => console.log(error))
+function nextNumber(min, max) {
+    return Math.random() * (max - min) + min;
 }
-jsonFilm();
+
+const filmButton = document.querySelector('#filmButton');
+
+
+function nextFilm() {
+    const newUrl = `${BASE_URL}${parseInt(nextNumber(1, 80000))}?api_key=${API_KEY}&${language}`;
+    getContent(newUrl);
+}
+
+filmButton.addEventListener('click', nextFilm);
