@@ -45,7 +45,7 @@ const filmButton = document.querySelector('#filmButton');
 
 
 function nextFilm() {
-    const newUrl = `${BASE_URL}${parseInt(nextNumber(1, 80000))}?api_key=${API_KEY}&${language}`;
+    const newUrl = `${BASE_URL}${parseInt(nextNumber(1, 800000))}?api_key=${API_KEY}&${language}`;
     getContent(newUrl);
 }
 
