@@ -19,7 +19,7 @@ function getContent(url) {
 
             adult
                 ? nextFilm()
-                : originalLanguage != "pt-br" && originalLanguage != "en"
+                : originalLanguage != "pt-br" && originalLanguage != "en" && originalLanguage != "pt"
                     ? nextFilm()
                     : !haveImg
                         ? nextFilm()
