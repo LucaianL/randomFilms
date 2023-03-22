@@ -4,7 +4,7 @@ import {
     language,
 } from './api.js'
 
-const url = `${BASE_URL}${parseInt(nextNumber(1, 80000))}?api_key=${API_KEY}&${language}`;
+const url = `${BASE_URL}${parseInt(nextNumber(1, 500000))}?api_key=${API_KEY}&${language}`;
 const img = IMG_URL;
 
 function getContent(url) {
@@ -19,7 +19,7 @@ function getContent(url) {
 
             adult
                 ? nextFilm()
-                : originalLanguage != "pt" && originalLanguage != "en"
+                : originalLanguage != "pt-br" && originalLanguage != "en"
                     ? nextFilm()
                     : !haveImg
                         ? nextFilm()
@@ -35,7 +35,7 @@ function getFilmInfo(info) {
     const title = info.title
     const overview = info.overview
     const poster = info.poster_path
-    const hasOverview = overview === "" ? "Não temos sinopse disponível para esse filme =(" : overview
+    const hasOverview = overview === "" ? "Não temos sinopse disponível para esse filme" : overview
 
     filmTitle.textContent = title
     filmOverview.textContent = hasOverview
@@ -64,7 +64,7 @@ const filmButton = document.querySelector('#filmButton');
 
 
 function nextFilm() {
-    const newUrl = `${BASE_URL}${parseInt(nextNumber(1, 800000))}?api_key=${API_KEY}&${language}`;
+    const newUrl = `${BASE_URL}${parseInt(nextNumber(1, 500000))}?api_key=${API_KEY}&${language}`;
     getContent(newUrl);
 }
 
